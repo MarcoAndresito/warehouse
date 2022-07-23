@@ -1,5 +1,8 @@
 # warehouse
 
-## subtitulo
+sistema para alamcen:
 
-texto
+- crear productos
+- leer productos
+- editar productos
+- eliminar productos
