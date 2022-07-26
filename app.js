@@ -1,20 +1,14 @@
 const express = require('express')
 
+const index = require('./routes/index')
+const products = require('./routes/products')
+
 const app = express()
 
 const PORT = process.env.PORT || 3000
 
-app.get('/', (req, res) => {
-    res.send('Hola Mundo!')
-})
-
-app.get('/products', (req, res) => {
-    res.send('productos en construction!')
-})
-
-app.get('/peoples', (req, res) => {
-    res.send('personas en construcion!')
-})
+app.use('/', index)
+app.use('/products', products)
 
 app.listen(PORT, () => {
     console.log('listo!')
