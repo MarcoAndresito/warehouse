@@ -1,4 +1,6 @@
 const express = require('express')
+const productService  = require('../service/products')
+const service = new productService()
 
 const route = express.Router()
 
@@ -19,8 +21,11 @@ var data = [
 ]
 
 // retorna todos los productos
-route.get('/', (req, res) => {
-    res.json(data)
+route.get('/', async (req, res) => {
+
+    var result = await service.list()
+    res.json(result)
+
 })
 
 // retorna un producto
