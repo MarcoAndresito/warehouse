@@ -1,7 +1,7 @@
 const express = require('express')
 
-const index = require('./routes/index')
-const products = require('./routes/products')
+const indexRute = require('./routes/indexRute')
+const productRute = require('./routes/productRute')
 
 const app = express()
 
@@ -9,8 +9,8 @@ const PORT = process.env.PORT || 3000
 
 app.use(express.json())
 
-app.use('/', index)
-app.use('/products', products)
+app.use('/', indexRute)
+app.use('/products', productRute)
 
 app.listen(PORT, () => {
     console.log('listo!')
