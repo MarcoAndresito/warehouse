@@ -1,1 +1,1 @@
-web: sh -c 'cd .\src\ && npm start'
+web: npm start

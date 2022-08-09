@@ -4,8 +4,8 @@
   "description": "proyecto para un almacen",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "startDev": "nodemon app.js"
+    "start": "node src/app.js",
+    "startDev": "nodemon src/app.js"
   },
   "license": "MIT",
   "dependencies": {
