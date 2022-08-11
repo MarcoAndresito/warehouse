@@ -9,6 +9,10 @@ const app = express()
 const PORT = process.env.PORT || 3000
 
 app.use(express.json())
+app.use((req, res, next) => {
+    console.log(`En fecha: "${new Date().toLocaleString()}" se esta consumiendo la api`)
+    next()
+})
 
 app.use('/', indexRute)
 app.use('/products', productRute)

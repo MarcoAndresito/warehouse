@@ -8,7 +8,7 @@ function generateToken(req, res) {
             const token = jwt.sign({
                 'sub': username,
                 'algo': 'mas info'
-            }, key)
+            }, key, { expiresIn: "5m" })
             res.status(200).json({
                 'status': 'ok',
                 'access_token': token
@@ -28,19 +28,16 @@ function generateToken(req, res) {
     }
 }
 
-function verifyToken(req, res) {
+function verifyToken(req, res, next) {
     try {
         const { authorization } = req.headers
         const token = authorization.split(' ')[1]
         const payload = jwt.verify(token, key)
-        res.json({
-            'status': 'ok',
-            'data': payload
-        })
+        console.log(`token verificado del usuario ${payload.sub} que exprira en ${payload.exp}`)
+        next()
     } catch (error) {
-        res.status(500).json({
-            'state': 'error',
-            'error': error
+        res.status(401).json({
+            'error': 'no ahutorizado!'
         })
     }
 }
