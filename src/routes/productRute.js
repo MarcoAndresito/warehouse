@@ -1,18 +1,12 @@
 const express = require('express')
-const {
-    getAllProducts,
-    getOneProduct,
-    saveProduct,
-    updateProduct,
-    deleteProduct
-} = require('../controllers/productController')
+const productController = require('../controllers/productController')
 
 const rute = express.Router()
 
-rute.get('/', getAllProducts)
-rute.get('/:id', getOneProduct)
-rute.post('/', saveProduct)
-rute.put('/:id', updateProduct)
-rute.delete('/:id', deleteProduct)
+rute.get('/', productController.getAllProducts)
+rute.get('/:id', productController.getOneProduct)
+rute.post('/', productController.saveProduct)
+rute.put('/:id', productController.updateProduct)
+rute.delete('/:id', productController.deleteProduct)
 
 module.exports = rute
