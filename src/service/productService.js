@@ -17,7 +17,8 @@ class ProductService {
 
     async get(id) {
         var objetId = new ObjectId(id)
-        var result = await this.collection.find({ "_id": objetId }).toArray()
+        var results = await this.collection.find({ "_id": objetId }).toArray()
+        var result = results[0]
         return result
     }
 
